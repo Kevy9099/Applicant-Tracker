@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Application</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+<body class="bg-primary-subtle">
+    <div class="container my-5">
+        <div class="card shadow-sm">
+            <div class="card-body bg-secondary-subtle">
+                <h1 class="card-title mb-4 text-center">Todo List Application</h1>
+                <!-- Add a task item. -->
+                <form id="addTodoForm" class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label"><strong>Name</strong></label>
+                        <input id="newName" type="text" class="form-control" placeholder="Type your name." required />
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label"><strong>Task Name</strong></label>
+                        <input id="newTaskName" type="text" class="form-control" placeholder="Type a task name."
+                            required />
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label"><strong>Task Description</strong></label>
+                        <input id="newTaskDescription" type="text" class="form-control"
+                            placeholder="Type a task description." required />
+                    </div>
+
+                    <div class="col-12 text-end">
+                        <button id="submit" class="btn btn-primary">
+                            <i class="bi bi-clipboard2-plus-fill"></i>
+                            <strong>Add</strong>
+                        </button>
+                    </div>
+                </form>
+
+                <hr class="my-4">
+
+                <!-- Deletes a todo item by Id. -->
+                <form class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Delete A Task</strong></label>
+                        <input id="idNumber" type="text" class="form-control" placeholder="Enter a task id." required />
+                    </div>
+
+                    <div class="col-md-12 text-end">
+                        <button type="button" class="btn btn-danger" onclick="deleteTodo()">
+                            <i class="bi bi-trash-fill"></i>
+                            <strong>Delete</strong>
+                        </button>
+                    </div>
+                </form>
+
+                <hr class="my-4">
+
+                <!-- Update a todo Item-->
+                <form class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label"><strong>Task Id</strong></label>
+                        <input id="updateIdNumber" type="text" class="form-control"
+                            placeholder="Type an existing task id." required>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label"><strong>Full Name</strong></label>
+                        <input id="updateName" type="text" class="form-control" placeholder="Type a new name.">
+                    </div>
+
+                    <div>
+                        <label class="col-md-3"><strong>Task Name</strong></label>
+                        <input id="updateTaskName" type="text" class="form-control" placeholder="Type a new task name.">
+                    </div>
+
+                    <div>
+                        <label class="col-md-3"><strong>Description</strong></label>
+                        <input id="updateTaskDescription" type="text" class="form-control"
+                            placeholder="Type a new task description.">
+                    </div>
+
+                    <div class="col-12 text-end">
+                        <button type="button" class="btn btn-success" onclick="updateTodo()">
+                            <i class="bi bi-pencil-fill"></i>
+                            <strong>Update Task</strong>
+                        </button>
+                    </div>
+
+                    <hr class="my-4">
+
+                </form>
+            </div>
+        </div>
+
+        <table class="table table-striped table-bordered mt-4">
+            <thead class="table-dark">
+                <tr>
+                    <th>Task Id</th>
+                    <th>Name</th>
+                    <th>Task Name</th>
+                    <th>Task Description</th>
+                </tr>
+            </thead>
+            <tbody id="todoTableBody"></tbody>
+        </table>
+        <!-- <ul id="todoList" class="list-group mt-4"></ul> -->
+    </div>
+    <!-- Todo Form: Adds a new todo item to the form and displays the list.-->
+    <!-- Jquery CDN  -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- JavaScript-->
+    <script src="./todo.js"></script>
+</body>
+</html>
