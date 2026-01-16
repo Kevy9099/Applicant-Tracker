@@ -18,7 +18,7 @@
             <div class="card-body bg-secondary-subtle">
                 <h1 class="card-title mb-4 text-center"><strong>Applicant Tracker</strong></h1>
                 <!-- Add a task item. -->
-                <form id="addApplicantForm" class="row g-3">
+                <form id="addApplicationForm" class="row g-3">
                     <h3 class="form-label text-center">Add An Application</h3>
                     <div class="col-md-4">
                         <label class="form-label"><strong>Applicant Name</strong>
@@ -51,7 +51,7 @@
                 <hr class="my-4">
 
                 <!-- Deletes a todo item by Id. -->
-                <form id=deleteApplication class="row g-3">
+                <form id="deleteApplication" class="row g-3">
                     <h3 class="form-label text-center">Delete An Application</h3>
                     <div class="col-md-6">
                         <label class="form-label"><strong>Application Id</strong>
@@ -70,33 +70,32 @@
                 <hr class="my-4">
 
                 <!-- Update a todo Item-->
-                <form id=updateApplication class="row g-3">
+                <form id="updateApplication" class="row g-3">
                     <h3 class="form-label text-center">Update An Application</h3>
                     <div class="col-md-3">
                         <label class="form-label"><strong>Applicant Id</strong>
-                            <input id="updateApplicantName" type="text" class="form-control"
+                            <input id="updateApplicationId" type="text" class="form-control"
                                 placeholder="An application id" required>
                         </label>
                     </div>
 
                     <div class="col-md-3">
                         <label class="form-label"><strong>Applicant Name</strong>
-                            <input id="updateApplicantName" type="text" class="form-control" placeholder="New applicant Name">
+                            <input id="updateApplicantName" type="text" class="form-control" placeholder="New applicant name">
                         </label>
                     </div>
 
-                    <div>
-                        <label class="col-md-3"><strong>Position</strong>
+                    <div class="col-md-3">
+                        <label class="form-label"><strong>Position</strong>
                             <input id="updatePosition" type="text" class="form-control"
                                 placeholder="New position of employment">
                         </label>
                     </div>
 
-                    <div>
-                        <label class="col-md-3"><strong>Application Status</strong>
-                            <textarea id="updateApplicationStatus" type="text" class="form-control w-100"
-                                style="width: 30rem" placeholder="New application status."></textarea>
-
+                    <div class="col-md-3">
+                        <label class="form-label"><strong>Application Status</strong>
+                            <input id="updateApplicationStatus" type="text" class="form-control w-100"
+                                style="width: 30rem" placeholder="New application status"></input>
                         </label>
                     </div>
 
@@ -113,9 +112,10 @@
             </div>
         </div>
         <!-- All task that exist in a table -->
-        <table class="table tracker-table striped table-bordered mt-4">
+        <table class="table tracker-table table-striped table-bordered mt-4">
             <thead class="table-dark">
                 <tr>
+                    <th>Application Id</th>
                     <th>Applicant Name</th>
                     <th>Position</th>
                     <th>Application Status</th>

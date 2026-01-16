@@ -35,14 +35,14 @@ $('#addApplicationForm').on('submit', function (e) {
 });
 
 function displayApplications() {
-    $('trackerTableBody').empty();
+    $('#trackerTableBody').empty();
 
     $.get(TRACKER_LIST_URL).then(data => {
-        if (data.length === 0) {
-            $('#tackerTableBody').append(
+        if (!data || data.length === 0) {
+            $('#trackerTableBody').append(
                 `<tr>
                     <td colspan="5" class="text-center text-muted">
-                        No tasks found
+                        No applications found
                     </td>
                 </tr>`
             );
@@ -54,11 +54,14 @@ function displayApplications() {
                 <tr>
                     <td data-label="Application Id">${tracker.id}</td>
                     <td data-label="Applicant Name">${tracker.applicantName}</td>
-                    <td data-label="Position">${tacker.position}</td>
+                    <td data-label="Position">${tracker.position}</td>
                     <td data-label="Application Status">${tracker.applicationStatus}</td>
-                <tr>
+                </tr>
             `);
-        });
+        }).catch(err => {
+    console.error("GET failed:", err);
+    alert("Failed to load applications. Check console.");
+  });
     });
 }
 
@@ -91,9 +94,9 @@ function deleteApplications() {
 }
 
 function updateApplications() {
-    const tackerId = document.getElementById("updateApplicationId").value;
+    const trackerId = document.getElementById("updateApplicationId").value;
 
-    if (!taskId) {
+    if (!trackerId) {
         alert("Please enter a application id to update!");
         return;
     }
@@ -121,7 +124,6 @@ function updateApplications() {
         })
         .then((updated) => {
             alert(`Updated application id ${updated.id}`);
-
             displayApplications();
         })
         .catch((err) => {
